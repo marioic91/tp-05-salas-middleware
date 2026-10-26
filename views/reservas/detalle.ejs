@@ -1,0 +1,24 @@
+<article class="detalle">
+    <h2>
+        <%= reserva.sala %>
+    </h2>
+    <figure>
+        <img src="<%= reserva.imagen %>" alt="Imagen de <%= reserva.nombre %>">
+    </figure>
+    <p class="descripcion">
+        <%= reserva.estudiante %>
+    </p>
+    <p class="descripcion">
+        <%= reserva.email %>
+    </p>
+    <p class="descripcion">
+        <%= reserva.fecha %>
+    </p>
+    <p class="descripcion">
+        <%= reserva.turno %>
+    </p>
+    <p class="descripcion">
+        <%= reserva.personas %> personas
+    </p>
+    <a href="/reservas">Volver al listado</a>
+</article>

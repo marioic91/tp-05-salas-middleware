@@ -1,0 +1,36 @@
+<section class="panel-formulario">
+    <p class="etiqueta">NUEVA SALA</p>
+    <h1>
+        <%= titulo %>
+    </h1>
+    <% if (error) { %>
+        <p class="error" role="alert">
+            <%= error %>
+        </p>
+        <% } %>
+            <form action="/reservas" method="post" class="formulario">
+                <label for="sala">Nombre</label>
+                <select id="sala" name="sala" required>
+                    <option value="">Seleccione una sala</option>
+                    <% salasPermitidas.forEach(function(sala) { %>
+                        <option value="<%= sala %>" <%= valores.sala === sala ? 'selected' : '' %>><%= sala %></option>
+                    <% }); %>
+                </select>
+                <label for="estudiante">Estudiante</label>
+                <input id="estudiante" name="estudiante" value="<%= valores.estudiante ?? '' %>" required>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" value="<%= valores.email ?? '' %>" required>
+                <label for="fecha">Fecha</label>
+                <input id="fecha" name="fecha" type="date" value="<%= valores.fecha ?? '' %>" required>
+                <label for="turno">Turno</label>
+                <select id="turno" name="turno" required>
+                    <option value="">Seleccione un turno</option>
+                    <option value="mañana" <%= valores.turno === 'mañana' ? 'selected' : '' %>>Mañana</option>
+                    <option value="tarde" <%= valores.turno === 'tarde' ? 'selected' : '' %>>Tarde</option>
+                    <option value="noche" <%= valores.turno === 'noche' ? 'selected' : '' %>>Noche</option>
+                </select>
+                <label for="personas">Personas</label>
+                <input id="personas" name="personas" type="number" min="1" max="6" step="1" value="<%= valores.personas ?? '' %>" required>
+                <button type="submit">Guardar reserva de sala</button>
+            </form>
+</section>
